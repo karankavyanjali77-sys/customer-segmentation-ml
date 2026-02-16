@@ -26,3 +26,5 @@ Given customer data, the goal is to group customers into meaningful segments usi
 - Translating business problems into data science solutions
 - Interpreting and visualizing clustering results
 
+Updated documentation.
+
