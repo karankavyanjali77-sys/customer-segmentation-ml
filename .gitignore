@@ -1,6 +1,5 @@
-# Model files
-models/
-*.pkl
+# Model file (ignore only trained model, not folder)
+models/kmeans.pkl
 
 # Python cache
 __pycache__/
