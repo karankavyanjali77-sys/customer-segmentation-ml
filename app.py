@@ -21,5 +21,11 @@ income = st.slider("Income",10000,100000)
 input_df = pd.DataFrame([[age,income]],columns=["Age","Income"])
 
 if st.button("Predict Segment"):
+
+    input_df = pd.DataFrame([[income, score]])
+
+    input_df.columns = model.feature_names_in_
+
     pred = model.predict(input_df)
-    st.success(f"Customer belongs to Segment {pred[0]}")
+
+    st.success(f"Customer belongs to Segment {int(pred[0])}")
