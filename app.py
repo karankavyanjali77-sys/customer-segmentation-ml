@@ -1,8 +1,17 @@
 import streamlit as st
-import pickle
 import pandas as pd
+import joblib
+import os
 
-model = pickle.load(open("models/kmeans.pkl","rb"))
+BASE_DIR = os.path.dirname(__file__)
+MODEL_DIR = os.path.join(BASE_DIR, "models")
+MODEL_PATH = os.path.join(MODEL_DIR, "kmeans.pkl")
+
+if not os.path.exists(MODEL_PATH):
+    os.makedirs(MODEL_DIR, exist_ok=True)
+    from src.train import pipeline
+
+model = joblib.load(MODEL_PATH)
 
 st.title("Customer Segmentation Predictor")
 
