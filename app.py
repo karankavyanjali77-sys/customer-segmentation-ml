@@ -3,6 +3,7 @@ import pandas as pd
 import joblib
 import os
 import matplotlib.pyplot as plt
+st.set_page_config(page_title="Customer Segmentation ML", layout="wide")
 
 # ------------------------
 # Paths
@@ -41,6 +42,7 @@ data["Cluster"] = model.predict(data[features])
 # UI
 # ------------------------
 st.title("Customer Segmentation Predictor")
+st.markdown("### Real-time ML-powered Customer Analytics Dashboard")
 
 income = st.slider("Annual Income (k$)", 0, 150, 50)
 score = st.slider("Spending Score (1-100)", 1, 100, 50)
@@ -53,6 +55,17 @@ if st.button("Predict Segment"):
     pred = model.predict(input_df)[0]
 
     st.success(f"Customer belongs to Segment {int(pred)}")
+
+    # Segment Meaning
+    segment_meaning = {
+        0: "High Income – Low Spending (Potential Premium Customers)",
+        1: "Low Income – High Spending (Impulse Buyers)",
+        2: "Balanced Customers",
+        3: "High Income – High Spending (VIP Target Segment)",
+        4: "Low Income – Low Spending (Budget Segment)"
+    }
+
+    st.info(segment_meaning[int(pred)])
 
     # ------------------------
     # Plot clusters
