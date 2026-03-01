@@ -17,8 +17,11 @@ DATA_PATH = os.path.join(BASE_DIR, "data", "data.csv")
 # ------------------------
 if not os.path.exists(MODEL_PATH):
     os.makedirs(MODEL_DIR, exist_ok=True)
-    from src.train import pipeline
-    joblib.dump(pipeline, MODEL_PATH)
+    from src.train import train_model
+    model = train_model()
+    joblib.dump(model, MODEL_PATH)
+else:
+    model = joblib.load(MODEL_PATH)
 
 # ------------------------
 # Load model
