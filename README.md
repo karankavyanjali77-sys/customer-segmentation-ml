@@ -117,6 +117,17 @@ customer-segmentation-ml/
 ├── requirements.txt       # Python dependencies
 ├── .devcontainer.json     # Development container configuration
 └── README.md              # Project documentation
+
+🧩 Development Environment
+
+This project includes a .devcontainer.json configuration file, enabling reproducible development environments using VS Code Dev Containers.
+
+This ensures:
+Consistent dependency setup
+Environment isolation
+Cloud-compatible configuration
+Smooth onboarding for collaborators
+
 ⚙️ How It Works
 
 Data is loaded and preprocessed
